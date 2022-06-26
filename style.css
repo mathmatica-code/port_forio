@@ -1,0 +1,211 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+img {
+    max-width: 95%;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* header */
+header {
+     /* 一番上にheaderの固定 */
+    position: fixed;
+    width: 100%;
+    /* headerが透けてしまうので白色のバックグラウンドを追加 */
+    background-color: #fff;
+    z-index: 10;
+}
+header h2{
+    padding:1px;
+    font-size: 30px;
+    padding-left: 20px;
+     /* フォントの細さは細い方がいい感じ */
+    font-weight: 200;  
+}
+header nav{
+    width: 100%;
+    background-color: brown;
+    padding: 0 0 10px 20px;
+}
+
+header nav ul li {
+    /*liの黒ポチ削除*/
+    list-style: none;
+    /*liのブロック要素は縦に並ぶので、インランブロックで横並びに*/   
+    display: inline-block;   
+    margin: 10px 40px 0 0;
+}
+.new-article{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 150px 0 70px 0;
+    text-align: center;
+}
+.new-article p {
+    font-weight: 700;
+    margin: 10px 0 0 0;
+}
+
+article a {
+    /* リンクのアンダーラインを消す */
+    text-decoration: none;
+    color: black;
+    /* aタグはインライン要素なのでディスプレイブロックを当てることでマージンとかを調整できるようになる */
+    display: block;
+    margin: 10px 0 0 0;
+}
+/* 疑似要素で下線を追加する */
+article a::after {
+    content: "";
+    display: block;
+    width: 80px;
+    background-color: black;
+    height: 1px;
+    margin: 0 auto;
+}
+
+
+/* メインのアサイドセクション */
+.container{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+main {
+    flex: 0.66;
+}
+
+main article{
+    margin: 0 0 50px 0;
+}
+
+main h1 {
+    font-size: 40px;
+}
+
+main ul {
+    list-style: none;
+    display: flex;
+    padding: 10px 0 10px 0;
+}
+
+main ul li {
+    margin: 0 40px 0 0;
+    
+}
+main img {
+    width: 100%;
+}
+main .article-info {
+    text-align: center;
+    padding: 10px 85px 30px 40px;
+}
+main .article-info p {
+    text-align: left;
+    font-weight: bold;
+}
+/* アサイドのセクション */
+aside {
+    flex: 0.33;
+}
+aside .author {
+    text-align: center;
+    margin: 0 0 80px 0;
+}
+aside .author img {
+    /* 画像を丸くする */
+    border-radius: 50%;
+    width: 40%;
+}
+aside .author h4 {
+    margin: 0 0 30px 0;
+}
+aside .author p {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: left;
+}
+.ranking h4 {
+    text-align: center;
+    margin: 0 10px 20px 0;
+}
+.ranking-article a {
+    text-align: center;
+    text-decoration: none;
+    color:black;
+}
+
+.ranking-article img {
+    padding: 10px;
+}
+.ranking-article p {
+    padding: 0 10px 10px 0s;
+}
+.archive {
+    margin: 40px 0 0 0;
+}
+.archive h4 {
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+.archive ul {
+    list-style: none;
+    width: 80%;
+    margin: 0 auto;
+    border-bottom: 1px solid black;
+
+}
+.archive ul li {
+    padding: 25px;
+    border-bottom: 1px solid black;
+
+}
+.archive ul li a {
+    text-decoration: none;
+    color: black;
+}
+/* フッター */
+footer {
+    background: #432;
+    text-align: center;
+    padding: 26px 0;
+}
+footer p {
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 600px) {
+    .new-article {
+        flex-direction: column;
+    }
+
+    .new-article article {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    main article img{
+       width: 100%;
+       margin-left: 15px;
+    }
+
+    aside .ranking img {
+        width: 100%;
+        margin-left: 15px;
+    }
+}
