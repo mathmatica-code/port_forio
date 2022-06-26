@@ -208,4 +208,17 @@ footer p {
         width: 100%;
         margin-left: 15px;
     }
+     /* 店舗情報・地図 / SNS */
+        #location .wrapper,
+        #sns .wrapper {
+            flex-direction: column;
+        }
+        .location-info,
+        .location-map,
+        .sns-box {
+            width: 100%;
+        }
+        .sns-box {
+            margin-bottom: 30px;
+        }
 }
