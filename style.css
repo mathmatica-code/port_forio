@@ -1,67 +1,261 @@
-*{
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Titan+One&display=swap');
+
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Hachi Maru Pop', cursive;
 }
+
+
 img {
-    max-width: 95%;
+    width: 95%;
 }
-
-.wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 16px;
-}
-
-/* header */
-header {
-     /* 一番上にheaderの固定 */
-    position: fixed;
+/*  */
+.showcase {
+    position: absolute;
+    right: 0;
     width: 100%;
-    /* headerが透けてしまうので白色のバックグラウンドを追加 */
-    background-color: #fff;
+    height: 100vh;
+    color: white;
+    padding: 30px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: 0.5s;
+}
+.showcase.active {
+    position: absolute;
+    right: 200px;
+
+
+}    
+
+
+.showcase video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.overlay {
+    position: absolute;
+    top: 17%;
+    left: 0;
+    width: 100%;
+    height: 83%;
+    background-color: rgb(65, 105, 197);
+    mix-blend-mode: overlay;
+}
+
+.showcase header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 50px;
+    z-index: 1000;
+
+}
+
+.toggle {
+    background: url(./images/menu.png);
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: left;
+    cursor: pointer;
+}
+.toggle.active {
+    background: url(./images/close.png);
+    width: 60px;
+    height: 60px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: left;
+    cursor: pointer;
+
+}
+
+.text {
+    position: relative;
     z-index: 10;
 }
-header h2{
-    padding:1px;
-    font-size: 30px;
-    padding-left: 20px;
-     /* フォントの細さは細い方がいい感じ */
-    font-weight: 200;  
-}
-header nav{
-    width: 100%;
-    background-color: brown;
-    padding: 0 0 10px 20px;
+
+.text h2 {
+    font-size: 5em;
+    font-weight: 800;
+    line-height: 1em;
+    /* 大文字にする */
+    text-transform: uppercase;
+    color: blanchedalmond;
 }
 
-header nav ul li {
-    /*liの黒ポチ削除*/
-    list-style: none;
-    /*liのブロック要素は縦に並ぶので、インランブロックで横並びに*/   
-    display: inline-block;   
-    margin: 10px 40px 0 0;
+.text h3 {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: bisque;
+
 }
-.new-article{
+
+.text p {
+    font-size: 1.1em;
+    margin: 20px 0;
+    color: white;
+    /* 文字が長すぎるので折り返す */
+    max-width: 700px;
+}
+
+.text a {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 30px;
+    background: rgb(228, 220, 220);
+    padding: 20px 50px;
+    color: brown;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.text a:hover {
+    letter-spacing: 8px;
+}
+
+.social {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+
+}
+
+.social li {
+    list-style: none;
+}
+
+
+.social li a {
+    display: inline-block;
+    margin-right: 40px;
+    transition: 0.2s;
+}
+
+.social li a:hover {
+    transform: translateY(-13px);
+
+}
+
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    z-index: -1;
+}
+
+.menu ul {
+    list-style: none;
+    font-size: 24px ;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+.menu ul li a:hover{
+    color:brown;
+
+}
+
+/* JavaScriptでactiveというクラスを出現させてサイドバーの作成をする */
+
+
+
+
+
+
+/* 動画とメインコンテナとの間--------------------------------------------------------- */
+.main-text {
+    max-width: 1080px;
+    margin: 0 auto ;
+    /* positionでabsoluteにすると重なるため１００vhで空ける */
+    padding-top: 100vh;
+
+}
+
+
+.botton-big a {
+    max-width: 1080px;
+    margin: 4px auto;
+
+    text-decoration: none;
+    /* リンクのアンダーラインを消す */
+    color: black;
+    text-align: center;
+    display: block;
+    /* aタグはインライン要素なのでディスプレイブロックを当てることでマージンとかを調整できるようになる */
+}
+
+/* 疑似要素で下線を追加する */
+.botton-big a::after {
+    content: "";
+    display: block;
+    width: 80px;
+    background-color: black;
+    height: 1px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+
+
+
+/* 以下記事 ---------------------------------------------------------*/
+.wrapper {
+    max-width: 1080px;
+    margin: 6px auto;
+    padding: 1px 4px 1px 4px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.new-article {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 150px 0 70px 0;
+    padding: 50px 0 70px 0;
     text-align: center;
 }
+
 .new-article p {
     font-weight: 700;
-    margin: 10px 0 0 0;
+    margin: 10px 0px 0px 0px;
 }
 
 article a {
-    /* リンクのアンダーラインを消す */
     text-decoration: none;
+    /* リンクのアンダーラインを消す */
     color: black;
-    /* aタグはインライン要素なのでディスプレイブロックを当てることでマージンとかを調整できるようになる */
     display: block;
-    margin: 10px 0 0 0;
+    /* aタグはインライン要素なのでディスプレイブロックを当てることでマージンとかを調整できるようになる */
+    margin: 10px 0px 0px 0px;
+
 }
+
 /* 疑似要素で下線を追加する */
 article a::after {
     content: "";
@@ -72,9 +266,8 @@ article a::after {
     margin: 0 auto;
 }
 
-
-/* メインのアサイドセクション */
-.container{
+/* コンテナのフレックス */
+.container {
     display: flex;
     justify-content: space-between;
 
@@ -84,7 +277,7 @@ main {
     flex: 0.66;
 }
 
-main article{
+main article {
     margin: 0 0 50px 0;
 }
 
@@ -100,63 +293,68 @@ main ul {
 
 main ul li {
     margin: 0 40px 0 0;
-    
+
 }
-main img {
-    width: 100%;
-}
-main .article-info {
-    text-align: center;
-    padding: 10px 85px 30px 40px;
-}
+
 main .article-info p {
     text-align: left;
     font-weight: bold;
 }
-/* アサイドのセクション */
+
+/* アサイドのセクション --------------------*/
 aside {
     flex: 0.33;
 }
+
 aside .author {
     text-align: center;
     margin: 0 0 80px 0;
 }
+
 aside .author img {
     /* 画像を丸くする */
     border-radius: 50%;
     width: 40%;
 }
+
 aside .author h4 {
     margin: 0 0 30px 0;
 }
+
 aside .author p {
     max-width: 300px;
     margin: 0 auto;
     text-align: left;
 }
+
 .ranking h4 {
     text-align: center;
-    margin: 0 10px 20px 0;
+    margin: 0 0px 20px 0;
 }
+
 .ranking-article a {
     text-align: center;
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
-.ranking-article img {
+.ranking-article a img {
     padding: 10px;
 }
+
 .ranking-article p {
     padding: 0 10px 10px 0s;
 }
+
 .archive {
     margin: 40px 0 0 0;
 }
+
 .archive h4 {
     text-align: center;
     margin: 0 0 30px 0;
 }
+
 .archive ul {
     list-style: none;
     width: 80%;
@@ -164,16 +362,28 @@ aside .author p {
     border-bottom: 1px solid black;
 
 }
+
 .archive ul li {
     padding: 25px;
     border-bottom: 1px solid black;
 
 }
+
 .archive ul li a {
     text-decoration: none;
     color: black;
 }
-/* フッター */
+
+main img {
+    width: 95%;
+}
+
+main .article-info {
+    text-align: center;
+    padding: 10px 85px 30px 40px;
+    /* 文字が長すぎるので折り返す */
+    max-width: 768px;
+}
 footer {
     background: #432;
     text-align: center;
@@ -185,7 +395,7 @@ footer p {
 }
 
 /* レスポンシブデザイン */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .new-article {
         flex-direction: column;
     }
@@ -199,26 +409,26 @@ footer p {
         flex-direction: column;
     }
 
-    main article img{
-       width: 100%;
-       margin-left: 15px;
+    main article img {
+        width: 100%;
+        padding: 10px 20px;
     }
 
-    aside .ranking img {
+    .ranking-article img  {
         width: 100%;
-        margin-left: 15px;
+        margin: 0 auto;
     }
-     /* 店舗情報・地図 / SNS */
-        #location .wrapper,
-        #sns .wrapper {
-            flex-direction: column;
-        }
-        .location-info,
-        .location-map,
-        .sns-box {
-            width: 100%;
-        }
-        .sns-box {
-            margin-bottom: 30px;
-        }
+
+    .showcase .text h2 {
+        font-size: 3rem;
+    }
+
+    .showcase .text h3 {
+        font-size: 2rem;
+    }
+
+    .text a {
+        margin-top: 20px;
+    }
+
 }
