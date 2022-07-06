@@ -420,15 +420,15 @@ footer p {
     }
 
     .showcase .text h2 {
-        font-size: 3rem;
-    }
-
-    .showcase .text h3 {
         font-size: 2rem;
     }
 
+    .showcase .text h3 {
+        font-size: 1rem;
+    }
+
     .text a {
-        margin-top: 20px;
+        margin-top: 10px;
     }
 
 }
